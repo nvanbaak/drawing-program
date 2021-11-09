@@ -1,1 +1,3 @@
 And now I have edited Shine May's file
+
+This was added in a branch with git checkout -b nvb/branchexample"
