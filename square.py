@@ -4,38 +4,44 @@ from shape import Shape
 # Square class is child class of Shape parent class
 
 class Square(Shape):
-    def __init__(self, name, length_of_side: float):
-        # super().__init__()
-        self.__name = name
+    def __init__(self):
+        super().__init__("square")
         self.__length_of_side = length_of_side
 
+    #do error checking in set method
+    def set_side(self, length_of_side):
+        if not self.__length_of_side > 0:
+            raise ValueError("Only positive numbers can be used for length of side of square.")
+        if not self.__length_of_side is float:
+            raise TypeError("Only float numbers can be used for length of side of square.")
+        return length_of_side
 
     # area method to return area of square
-    def area(self, length_of_side):
-        if not length_of_side > 0:
-            raise ValueError("Only positive numbers can be used for length of side of square.")
-        value_of_area = length_of_side * length_of_side
+    def area(self):
+
         # assert isinstance(value_of_area, float)
-        return value_of_area
+        return self.__length_of_side * self.__length_of_side
 
     # perimeter method to return perimeter of square
-    def perimeter(self, length_of_side):
-        if not length_of_side > 0:
+    def perimeter(self):
+        if not self.__length_of_side > 0:
             raise ValueError("Only positive numbers can be used for length of side of square.")
-        value_of_perimeter = 4 * length_of_side
-        return value_of_perimeter
+
+        return 4 * self.__length_of_side
 
     # method to print the name of the shape followed by the area and perimeter of shape
-    def draw(self, name):
-        print(name, ", area: ", self.area(length_of_side), ", perimeter: ", self.perimeter(length_of_side))
+    def draw(self):
+        #print(super().name(), ", area: ", self.area(), ", perimeter: ", self.perimeter())
+        super().draw()
 
 
+    
 # driver code to test above
-
-mysquare = Square("square", 4)
 length_of_side = 4
-myarea = mysquare.area(length_of_side)
+mysquare = Square()
+
+myarea = mysquare.area()
 print(myarea)
-myperimeter = mysquare.perimeter(length_of_side)
+myperimeter = mysquare.perimeter()
 print(myperimeter)
-mysquare.draw("square")
+mysquare.draw()
