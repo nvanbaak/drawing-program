@@ -1,32 +1,44 @@
-#abstract base class Shape parent class to child classes Circle, Square, Rectangle, Triangle
+# abstract base class Shape parent class to child classes Circle, Square, Rectangle, Triangle
 import abc
 
-class Shape(metaclass=abc.ABCMeta):
-    #constructor
-    def __init__(self, name):
-        self.__name = name
 
-    #getter function to return name
-    def name(self):
+class Shape(metaclass=abc.ABCMeta):
+    # constructor
+    def __init__(self, new_name):
+        self.__name = new_name
+
+    # getter function to return name
+    def _name(self):
         return self.__name
 
-    # property to get teh name of the shape
-    name = property(name)
+    def _set_name(self, new_name):
+        if not isinstance(new_name, str):
+            raise TypeError("value passed to _set_name was not a string!")
 
-    #abstract method that will return the area of the given shape
+    # property to get the name of the shape
+    name = property(_name, _set_name)
+
+    # abstract method that will return the area of the given shape
     @abc.abstractmethod
     def area(self):
         pass
 
-    #abstract method that will return the perimeter of the given shape
+    # abstract method that will return the perimeter of the given shape
+    @abc.abstractmethod
     def perimeter(self):
         pass
 
-    #method that prints the name of the shape followed by the area and perimeter of the
-    #shape formatted as follows: "name_of_shape, area: value_of_area, perimeter: value_of_perimeter"
+    # method that prints the name of the shape followed by the area and perimeter of the
+    # shape formatted as follows: "name_of_shape, area: value_of_area, perimeter: value_of_perimeter"
     def draw(self):
         print(self.__str__())
 
-    #to string method that would allow draw() to call this method and print out the results
+    # to string method that would allow draw() to call this method and print out the results
     def __str__(self):
-        return str(self.__name) + "," + str(self.area()) + "," + str(self.perimeter())
+        return str(self.__name) + ", area: " + str(self.area()) + ", perimeter: " + str(self.perimeter())
+
+    def __eq__(self, other):
+        pass
+
+    def __lt__(self, other):
+        pass
