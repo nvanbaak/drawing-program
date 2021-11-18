@@ -1,6 +1,6 @@
 import unittest
 
-from shape
+# from shape
 
 class MyShapeFactoryTests(unittest.TestCase):
     def test_init(self):
