@@ -4,7 +4,6 @@
 import unittest
 from drawing_program import DrawingProgram as dp
 from circle import Circle
-from shapefactory_tests import MyShapeFactoryTests
 
 class MyDPTests(unittest.TestCase):
     """
@@ -44,16 +43,14 @@ class MyDPTests(unittest.TestCase):
             self.assertTrue(False, "Exception raised during addShape()!")
 
     def test_str_empty(self):
-        myDP = dp()
-        self.assertEqual(myDP.__str__(), "", "__str__() of empty DrawingProgram failed to return an empty string!")
-        pass
+        self.assertEqual(dp().__str__(), "", "__str__() of empty DrawingProgram failed to return an empty string!")
 
     def test_str_not_empty(self):
         myDP = dp()
         test_circle = Circle(0)
         myDP.addShape(test_circle)
 
-        self.assertEqual(myDP.__str__(), test_circle.__str__(), "__str__() of DrawingProgram not equal to __str__() of contained shapes!")
+        self.assertEqual(myDP.__str__(), test_circle.__str__()+ "\n", "__str__() of DrawingProgram not equal to __str__() of contained shapes!")
 
     def test_add_non_shape(self):
         myDP = dp()
@@ -88,10 +85,6 @@ class MyDPTests(unittest.TestCase):
 
         self.assertEqual(myDP.remove_shape(Circle(5)), 0, "remove_shape() reports removing elements where none should have been removed!")
         self.assertEqual(len(myDP.shape_list), 3, "remove_shape removed elements where there were no matches!")
-
-    def test_remove_shape_nonshape(self):
-        myDP = dp()
-        self.assertRaises(TypeError, myDP.remove_shape, "not a shape")
 
     def test_sort_shapes(self):
         unsorted_shapes = [
