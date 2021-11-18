@@ -8,7 +8,7 @@ class Shape(metaclass=abc.ABCMeta):
 
     #method for equality operator to help sort shapes by area
     def __eq__(self, other):
-        if not isinstance(other, Shape): raise TypeError
+        if not isinstance(other, Shape): raise TypeError("Not a Shape object!")
         return self.area() == other.area()
 
     #method for less than operator to help sort shapes by area
