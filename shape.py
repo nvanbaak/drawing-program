@@ -30,6 +30,7 @@ class Shape(metaclass=abc.ABCMeta):
         pass
 
     #abstract method that will return the perimeter of the given shape
+    @abc.abstractmethod
     def perimeter(self):
         pass
 
