@@ -4,9 +4,9 @@ from shape import Shape
 # Circle class is child class of Shape parent class
 
 class Circle(Shape):
-    def __init__(self):
+    def __init__(self, radius=None):
         super().__init__("circle")
-        self.__radius = None
+        self.__radius = radius
 
     # helper function to do error checking in set method
     def set_radius(self, radius):
