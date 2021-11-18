@@ -33,18 +33,4 @@ class Circle(Shape):
     # method to print the name of the shape followed by the area and perimeter of shape
     def draw(self):
 
-        super().draw()
-
-
-# driver code to test above
-
-mycircle = Circle()
-mycircle.set_radius(1)
-myarea = mycircle.area()
-print(myarea)
-myperimeter = mycircle.perimeter()
-print(myperimeter)
-mycircle.draw()
-
-
-    
+        super().draw()    
