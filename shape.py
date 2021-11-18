@@ -18,11 +18,11 @@ class Shape(metaclass=abc.ABCMeta):
         return self.area() < other.area()
 
     #getter function to return name
-    def name(self):
+    def get_name(self):
         return self.__name
 
     # property to get the name of the shape
-    name = property(name)
+    name = property(get_name)
 
     #abstract method that will return the area of the given shape
     @abc.abstractmethod
