@@ -8,31 +8,21 @@ class Shape(metaclass=abc.ABCMeta):
 
     #method for equality operator to help sort shapes by area
     def __eq__(self, other):
-        x = isinstance(other, Shape)
-        if x is True:
-            if other.area() == self.area():
-                return True
-            else:
-                return False
-        else:
-            return False
+        if not isinstance(other, Shape): raise TypeError("Not a Shape object!")
+        return self.area() == other.area()
 
     #method for less than operator to help sort shapes by area
     def __lt__(self, other):
         if not isinstance(other, Shape):
             raise TypeError("Only Shape objects can be compared.")
-
-        if other.area() > self.area():
-            return True
-        else:
-            return False
+        return self.area() < other.area()
 
     #getter function to return name
-    def name(self):
+    def get_name(self):
         return self.__name
 
     # property to get the name of the shape
-    name = property(name)
+    name = property(get_name)
 
     #abstract method that will return the area of the given shape
     @abc.abstractmethod
@@ -40,6 +30,7 @@ class Shape(metaclass=abc.ABCMeta):
         pass
 
     #abstract method that will return the perimeter of the given shape
+    @abc.abstractmethod
     def perimeter(self):
         pass
 
