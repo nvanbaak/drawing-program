@@ -1,7 +1,6 @@
 # nvb / 17 Nov 2021
 # code for DrawingProgram class
 
-from dp_iter import DrawingProgramIterator
 from shape import Shape
 
 class DrawingProgram:
@@ -30,7 +29,7 @@ class DrawingProgram:
             self.shape_list = shape_list
 
     def __iter__(self):
-        return DrawingProgramIterator(self.shape_list)
+        return self.DrawingProgramIterator(self.shape_list)
 
     def addShape(self, shape):
         """
