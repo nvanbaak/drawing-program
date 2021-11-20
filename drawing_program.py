@@ -1,11 +1,25 @@
 # nvb / 17 Nov 2021
 # code for DrawingProgram class
 
+from dp_iter import DrawingProgramIterator
 from shape import Shape
 
 class DrawingProgram:
+    """
+    A class that handles a collection of shapes
+    """
+    class DrawingProgramIterator:
+        def __init__(self, shape_list):
+            self._index = 0
+            self._shape_list = shape_list
+
+        def __next__(self):
+            output = self._shape_list[self._index]
+            if self._index >= len(self._shape_list):
+                raise StopIteration
+            return output
+
     def __init__(self, shape_list=None):
-        
         # validate input
         if shape_list is None:
             self.shape_list = []
@@ -14,6 +28,9 @@ class DrawingProgram:
                 if not isinstance(shape, Shape):
                     raise TypeError("Not a shape!")
             self.shape_list = shape_list
+
+    def __iter__(self):
+        return DrawingProgramIterator(self.shape_list)
 
     def addShape(self, shape):
         """
