@@ -3,7 +3,6 @@
 
 import unittest
 from drawing_program import DrawingProgram as dp
-from circle import Circle
 from shapefactory import ShapeFactory as sf
 
 class MyDPTests(unittest.TestCase):
@@ -31,10 +30,10 @@ class MyDPTests(unittest.TestCase):
 
     def test_init_fails_nonshapes(self):
         bad_list = [
-            sf.create_shape("circle",1),
-             sf.create_shape("circle",2),
-              sf.create_shape("circle",3),
-            "12345"]
+                sf.create_shape("circle",1),
+                sf.create_shape("circle",2),
+                sf.create_shape("circle",3),
+                "12345"]
         try:
             myDP = dp(bad_list)
             self.assertTrue(False,
@@ -73,7 +72,11 @@ class MyDPTests(unittest.TestCase):
 
     def test_get_shape(self):
         test_circle = sf.create_shape("circle",3)
-        myDP = dp([sf.create_shape("circle",1), test_circle, sf.create_shape("circle",5)])
+        myDP = dp([
+                sf.create_shape("circle",1),
+                test_circle,
+                sf.create_shape("circle",5)])
+
         self.assertEqual(
                 myDP.get_shape(1),
                 test_circle,
@@ -81,18 +84,18 @@ class MyDPTests(unittest.TestCase):
 
     def test_get_shape_bad_index(self):
         myDP = dp([
-            sf.create_shape("circle",1),
-            sf.create_shape("circle",3),
-            sf.create_shape("circle",5)])
+                sf.create_shape("circle",1),
+                sf.create_shape("circle",3),
+                sf.create_shape("circle",5)])
         self.assertRaises(IndexError, myDP.get_shape, 5)
         self.assertRaises(IndexError, myDP.get_shape, -1)
 
     def test_remove_shape(self):
         myDP = dp([
-            sf.create_shape("circle",1),
-            sf.create_shape("circle",2),
-            sf.create_shape("circle",3),
-            sf.create_shape("circle",4)])
+                sf.create_shape("circle",1),
+                sf.create_shape("circle",2),
+                sf.create_shape("circle",3),
+                sf.create_shape("circle",4)])
 
         self.assertEqual(
                 myDP.remove_shape(sf.create_shape("circle",1)),
