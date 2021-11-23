@@ -209,6 +209,21 @@ class MyDPTests(unittest.TestCase):
                 index=0,
                 shape="bwa ha ha, not a shape!")
 
+    def test_iteration(self):
+        shapes = []
+        for r in range(1,6):
+            shapes.append(sf.create_shape("circle", r))
+
+        my_dp = dp(shapes)
+
+        # this logic is identical to dp.__str__, so they should be equal
+        output = ""
+        for shape in my_dp:
+            output += shape.__str__() + "\n"
+
+        self.assertEqual(output, my_dp.__str__())
+
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -13,9 +13,10 @@ class DrawingProgram:
             self._shape_list = shape_list
 
         def __next__(self):
-            output = self._shape_list[self._index]
             if self._index >= len(self._shape_list):
                 raise StopIteration
+            output = self._shape_list[self._index]
+            self._index += 1
             return output
 
     def __init__(self, shape_list=None):
