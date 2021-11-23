@@ -56,3 +56,6 @@ class TriangleTest(unittest.TestCase):
         another_triangle.set_base(1)
         another_triangle.set_height(1)
         self.assertEqual(3.24, round(another_triangle.perimeter(), 2), "perimeter was not 3.24")
+
+if __name__ == "__main__":
+    unittest.main()

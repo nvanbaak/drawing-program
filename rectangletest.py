@@ -56,3 +56,6 @@ class RectangleTest(unittest.TestCase):
         another_rectangle.set_length(1)
         another_rectangle.set_width(2)
         self.assertEqual(6, round(another_rectangle.perimeter(), 2), "perimeter was not 6")
+
+if __name__ == "__main__":
+    unittest.main()

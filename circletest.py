@@ -38,3 +38,6 @@ class CircleTest(unittest.TestCase):
         another_circle = Circle()
         another_circle.set_radius(3)
         self.assertEqual(18.85, round(another_circle.perimeter(), 2), "perimeter/circumference was not 18.85")
+
+if __name__ == "__main__":
+    unittest.main()
