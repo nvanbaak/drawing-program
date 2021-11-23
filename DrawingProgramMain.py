@@ -13,11 +13,8 @@ print("\nWe'll start by adding some shapes.  Here they are:")
 my_drawing_program = DrawingProgram()
 
 my_rectangle = sf.create_shape("rectangle", 2, 4.0)
-
 my_square = sf.create_shape("square", 3.1)
-
 my_triangle = sf.create_shape("triangle", 3, 4.0)
-
 my_circle = sf.create_shape("circle", 3.1)
 
 my_drawing_program.add_shape(my_square)
@@ -32,16 +29,10 @@ my_drawing_program.sort_shapes()
 print(my_drawing_program)
 
 print("Let's add some more shapes: ")
-
-my_rectangle = sf.create_shape("rectangle", 1, 2)
-my_square = sf.create_shape("square", 2)
-my_triangle = sf.create_shape("triangle", 1, 2)
-my_circle = sf.create_shape("circle", 4)
-
-my_drawing_program.add_shape(my_triangle)
-my_drawing_program.add_shape(my_rectangle)
-my_drawing_program.add_shape(my_square)
-my_drawing_program.add_shape(my_circle)
+my_drawing_program.add_shape(sf.create_shape("rectangle", 1, 2))
+my_drawing_program.add_shape(sf.create_shape("square", 2))
+my_drawing_program.add_shape(sf.create_shape("triangle", 1, 2))
+my_drawing_program.add_shape(sf.create_shape("circle", 4))
 print(my_drawing_program)
 
 print("That's way too many shapes.  Let's remove a couple: ")
