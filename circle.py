@@ -6,7 +6,8 @@ from shape import Shape
 class Circle(Shape):
     def __init__(self, radius=None):
         super().__init__("circle")
-        self.__radius = radius
+        self.__radius = None
+        if radius is not None: self.set_radius(radius)
 
     # helper function to do error checking in set method
     def set_radius(self, radius):
@@ -32,5 +33,4 @@ class Circle(Shape):
 
     # method to print the name of the shape followed by the area and perimeter of shape
     def draw(self):
-
         super().draw()    
