@@ -49,15 +49,3 @@ class Rectangle(Shape):
     def draw(self):
 
         super().draw()
-
-
-# driver code to test above
-
-myrectangle = Rectangle()
-myrectangle.set_length(1)
-myrectangle.set_width(2)
-myarea = myrectangle.area()
-print(myarea)
-myperimeter = myrectangle.perimeter()
-print(myperimeter)
-myrectangle.draw()
