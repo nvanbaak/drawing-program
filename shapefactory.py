@@ -10,6 +10,18 @@ class ShapeFactory:
 
     @staticmethod
     def create_shape(shape_name, *args):
+        """
+        A method for creating Shape objects according to user-generated paramters.
+
+        params:
+        :shape_name: the name of the Shape object to create
+        :args: parameter information with meaning dependent on the Shape:
+            Rectangle: width, height
+            Square: side length
+            Triangle: width, height
+            Circle: radius
+        :returns: a Shape
+        """
         shape_data = args
         count = len(args)
         if shape_name == "rectangle":
