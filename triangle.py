@@ -47,15 +47,3 @@ class Triangle(Shape):
     def draw(self):
 
         super().draw()
-
-
-# driver code to test above
-
-mytriangle = Triangle()
-mytriangle.set_base(1)
-mytriangle.set_height(1)
-myarea = mytriangle.area()
-print(myarea)
-myperimeter = mytriangle.perimeter()
-print(myperimeter)
-mytriangle.draw()
