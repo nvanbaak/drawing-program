@@ -34,15 +34,3 @@ class Square(Shape):
     def draw(self):
         #print(super().name(), ", area: ", self.area(), ", perimeter: ", self.perimeter())
         super().draw()
-
-
-    
-# driver code to test above
-
-mysquare = Square()
-mysquare.set_side(4)
-myarea = mysquare.area()
-print(myarea)
-myperimeter = mysquare.perimeter()
-print(myperimeter)
-mysquare.draw()
