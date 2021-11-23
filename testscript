@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo
+echo Testing Circle:
+py -3 circletest.py
+echo
+echo Testing Square:
+py -3 squaretest.py
+echo
+echo Testing Rectangle:
+py -3 rectangletest.py
+echo
+echo Testing Triangle:
+py -3 triangletest.py
+echo
+echo Testing Shape_Factory:
+py -3 shapefactory_tests.py
+echo
+echo Testing DrawingProgram:
+py -3 dp_test.py
