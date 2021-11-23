@@ -32,7 +32,7 @@ class DrawingProgram:
     def __iter__(self):
         return self.DrawingProgramIterator(self.__shape_list)
 
-    def addShape(self, shape):
+    def add_shape(self, shape):
         """
         Adds a Shape object to the list of shapes.
 

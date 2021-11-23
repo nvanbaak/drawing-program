@@ -45,11 +45,11 @@ class MyDPTests(unittest.TestCase):
         my_dp = dp()
         test_circle = sf.create_shape("circle",1)
         try:
-            my_dp.addShape(test_circle)
+            my_dp.add_shape(test_circle)
             self.assertEqual(my_dp.get_shape(0), test_circle)
         except:
             self.assertTrue(False,
-                    "Exception raised during addShape()!")
+                    "Exception raised during add_shape()!")
 
     def test_str_empty(self):
         self.assertEqual(
@@ -59,7 +59,7 @@ class MyDPTests(unittest.TestCase):
     def test_str_not_empty(self):
         my_dp = dp()
         test_circle = sf.create_shape("circle",1)
-        my_dp.addShape(test_circle)
+        my_dp.add_shape(test_circle)
 
         self.assertEqual(
                 my_dp.__str__(),
@@ -68,7 +68,7 @@ class MyDPTests(unittest.TestCase):
 
     def test_add_non_shape(self):
         my_dp = dp()
-        self.assertRaises(TypeError, my_dp.addShape, "12345")
+        self.assertRaises(TypeError, my_dp.add_shape, "12345")
 
     def test_get_shape(self):
         test_circle = sf.create_shape("circle",3)
