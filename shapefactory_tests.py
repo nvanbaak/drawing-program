@@ -64,6 +64,12 @@ class ShapeFactoryTest(unittest.TestCase):
         except ValueError:
             self.assertEqual(True, True, "Error: ShapeFactory can only create 'circle', 'square', 'rectangle' and 'triangle'")
 
+    def test_wrong_number_arguments_passed(self):
+        self.assertRaises(
+                ValueError,
+                ShapeFactory.create_shape,
+                "circle", 1, 2, 3)
+
 
 if __name__ == '__main__':
     unittest.main()

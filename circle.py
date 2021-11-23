@@ -4,9 +4,9 @@ from shape import Shape
 # Circle class is child class of Shape parent class
 
 class Circle(Shape):
-    def __init__(self, radius=None):
+    def __init__(self):
         super().__init__("circle")
-        self.__radius = radius
+        self.__radius = None
 
     # helper function to do error checking in set method
     def set_radius(self, radius):
@@ -32,5 +32,4 @@ class Circle(Shape):
 
     # method to print the name of the shape followed by the area and perimeter of shape
     def draw(self):
-
         super().draw()    

@@ -21,15 +21,15 @@ class DrawingProgram:
     def __init__(self, shape_list=None):
         # validate input
         if shape_list is None:
-            self.shape_list = []
+            self.__shape_list = []
         else:
             for shape in shape_list:
                 if not isinstance(shape, Shape):
                     raise TypeError("Not a shape!")
-            self.shape_list = shape_list
+            self.__shape_list = shape_list
 
     def __iter__(self):
-        return self.DrawingProgramIterator(self.shape_list)
+        return self.DrawingProgramIterator(self.__shape_list)
 
     def addShape(self, shape):
         """
@@ -39,7 +39,7 @@ class DrawingProgram:
         :shape: a Shape object to add.
         """
         if isinstance(shape, Shape): 
-            self.shape_list.append(shape)
+            self.__shape_list.append(shape)
         else:
             raise(TypeError, "Attempted to add a non-Shape object to DrawingProgram!")
 
@@ -53,7 +53,7 @@ class DrawingProgram:
         """
 
         # get length of shape_list
-        endpoint = len(self.shape_list)
+        endpoint = len(self.__shape_list)
 
         # trivial case for empty list
         if endpoint == 0: return 0
@@ -63,8 +63,8 @@ class DrawingProgram:
 
         while endpoint > 0:
             endpoint -= 1
-            if self.shape_list[endpoint] == shape:
-                self.shape_list.pop(endpoint)
+            if self.__shape_list[endpoint] == shape:
+                self.__shape_list.pop(endpoint)
                 deletions += 1
 
         return deletions
@@ -76,7 +76,7 @@ class DrawingProgram:
         params: the given Shape object.
         :returns: None 
         """
-        for element in self.shape_list:
+        for element in self.__shape_list:
             if element == shape:
                 print(element.__str__())
 
@@ -86,7 +86,7 @@ class DrawingProgram:
         in shape_list.
         """
         output = ""
-        for sh in self.shape_list:
+        for sh in self.__shape_list:
             output += sh.__str__() + "\n"
         return output
 
@@ -98,10 +98,10 @@ class DrawingProgram:
         :index: a positive integer of size no greater than the number of shapes in shape_list
         :returns: the Shape at the given index, or None if none exists
         """
-        if not index in range(0, len(self.shape_list)):
+        if not index in range(0, len(self.__shape_list)):
             raise IndexError("Index out of bounds!")
 
-        return self.shape_list[index]
+        return self.__shape_list[index]
 
     def set_shape(self, index, shape):
         """
@@ -116,12 +116,12 @@ class DrawingProgram:
         """
 
         # validate input
-        if not index in range(0, len(self.shape_list)):
+        if not index in range(0, len(self.__shape_list)):
             raise IndexError("Index out of bounds!")
         if not isinstance(shape, Shape):
             raise TypeError("Not a Shape object!")
 
-        self.shape_list[index] = shape
+        self.__shape_list[index] = shape
 
     def sort_shapes(self):
         """
@@ -130,7 +130,7 @@ class DrawingProgram:
         :returns: None 
         """
 
-        self.shape_list = self.merge_sort(self.shape_list)
+        self.__shape_list = self.merge_sort(self.__shape_list)
 
     def merge_sort(self, list):
         """
